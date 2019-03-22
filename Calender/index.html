@@ -3,13 +3,17 @@
     <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-2">
     <SCRIPT LANGUAGE= "JavaScript" type= "text/javascript">
    
+    var miesiac12 = prompt("podaj miesiac jako liczbe")
+
     function rokPrzestepny(rok)
     {
       return ((rok % 4 == 0) && ((rok % 100 != 0) || (rok % 400 == 0)));
     }
     function printCalendar()
     {
-      data = new Date();
+      miesiac12 = parseInt(miesiac12)
+
+      data = new Date(2019, miesiac12);
     
       var rok = data.getFullYear();
     
