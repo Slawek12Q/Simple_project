@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+     <head>
+          <meta charset="UTF-8" />
+          <title>Tytuł strony</title>
+         
+     </head>
+     <body >
+            <form>
+                Tekst: <input id ="text" type="text"  ><br>
+                Slowo 1: <input id="slowo1" type="text"  ><br>
+                Slowo2: <input id="slowo2" type="text"  ><br>
+                <button onclick="display()">Usun</button> <br>
+                <button onclick="oblicz()">Oblicz</button> <br>
+                <button onclick="zamien()">Zamien</button> <br> 
+
+            </form>  
+
+            <script>
+                function display()
+                {
+                    var text = document.getElementById("text").value
+                    var slowo = document.getElementById("slowo1").value
+
+                    tab = text.split(' ')
+
+                    for(let i=0; i<tab.length; i++){
+                        
+                        if(tab[i] === slowo)
+                        {
+                            tab.splice(i,1);
+                            i--;
+                        }
+                    }
+                    
+                    for(let i=0; i<tab.length; i++){
+                        document.writeln(tab[i] + "<br>");
+                    }
+                }                
+            </script>
+
+            <script>
+            function oblicz()
+                {
+                    var text = document.getElementById("text").value
+                    var slowo = document.getElementById("slowo1").value
+
+                    tab = text.split(' ')
+                    let ilosc_wystapien=0;
+                    for(let i=0; i<tab.length; i++)
+                    {
+                        
+                        if(tab[i] === slowo)
+                        {
+                            ilosc_wystapien++;
+                        }
+                    }
+
+                    document.write("Ilosc wystapien tego slowa wynosi: " +ilosc_wystapien)
+
+                }
+            </script>
+
+            <script>
+             function zamien()
+                {
+                    var text = document.getElementById("text").value
+                    var slowo1 = document.getElementById("slowo1").value
+                    var slowo2 = document.getElementById("slowo2").value
+
+                    textChange = text;
+
+                    while (text.includes(slowo1))
+                    {
+                        textChange = text.replace(slowo1, slowo2);
+                        text = textChange;
+                    }
+
+                    document.write(text);
+                  
+                }
+            
+            </script>
+
+     </body>
+</html>

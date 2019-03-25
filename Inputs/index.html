@@ -5,18 +5,22 @@
           <title>Tytuł strony...</title>
           <script src="main.js" type="text/javascript"></script>
      </head>
-     <body>
-            <form action="home.html">
+     <body >
+            <form>
                 First name: <input id ="name" type="text" name="fname" value="imie"><br>
-                Last name: <input type="text" name="lname" value="nazwisko"><br>
-                <input type="submit" value="Submit">
+                Last name: <input id="surname" type="text" name="lname" value="nazwisko"><br>
+                <button onclick="display()">Subbmit</button>
             </form>  
 
-            <input type="text" name="inputText" id="inputText" placeholder="Pole testowe">
-
             <script>
-                var imie = document.querySelector('#fname').value
-                document.write(imie)
+                function display()
+                {
+                    var imie = document.getElementById("name").value
+                    var nazwisko = document.getElementById("surname").value
+
+                    document.write(imie + "<br>")
+                    document.write(nazwisko)
+                }                
             </script>
      </body>
 </html>
