@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+     <head>
+          <meta charset="UTF-8" />
+          <title>Tytu³ strony</title>
+         
+     </head>
+     <body >
+            <form>
+                Rok: <input id ="rok" type="text"><br>
+                <select id ="miesiac" name="Miesiac">
+                    <option>styczen</option>
+                    <option>luty</option>
+                    <option>marzec</option>
+                    <option>kwiecien</option>
+                    <option>maj</option>
+                    <option>czerwiec</option>
+                    <option>lipiec</option>
+                    <option>sierpien</option>
+                    <option>wrzesien</option>
+                    <option>pazdziernik</option>
+                    <option>listopad</option>
+                    <option>grudzien</option>
+                </select>
+                <button onclick="display()">Subbmit</button>
+            </form>  
+
+            <script>
+                function display()
+                {
+                    var rok = document.getElementById("rok").value
+                    var miesiac = document.getElementById("miesiac").value
+
+                   
+                    rok = parseInt(rok);
+                    dni_w_miesiacu=0;
+                    miesiac_numer=0;
+
+                    dzien_tygodnia = ["niedziela", "poniedzialek", "wtorek", "sroda", "czwartek", "piatek", "sobota"];
+
+                    switch(miesiac)
+                    {
+                        case "styczen": 
+                            dni_w_miesiacu=31
+                            miesiac_numer=1
+                            break;
+                        case "luty": 
+                            dni_w_miesiacu=28
+                            miesiac_numer=2
+                            break;
+                        case "marzec": 
+                            dni_w_miesiacu=31
+                            miesiac_numer=3
+                            break;
+                        case "kwiecien": 
+                            dni_w_miesiacu=30
+                            miesiac_numer=4
+                            break;
+                        case "maj": 
+                            dni_w_miesiacu=31
+                            miesiac_numer=5
+                            break;
+                        case "czerwiec": 
+                            dni_w_miesiacu=30
+                            miesiac_numer=6
+                            break;
+                        case "lipiec": 
+                            dni_w_miesiacu=31
+                            miesiac_numer=7
+                            break;
+                        case "sierpien": 
+                            dni_w_miesiacu=31
+                            miesiac_numer=8
+                            break;
+                        case "wrzesien": 
+                            dni_w_miesiacu=30
+                            miesiac_numer=9
+                            break;
+                        case "pazdziernik": 
+                            dni_w_miesiacu=31
+                            miesiac_numer=10
+                            break;
+                        case "listopad": 
+                            dni_w_miesiacu=30
+                            miesiac_numer=11
+                            break;
+                        case "grudzien": 
+                            dni_w_miesiacu=28
+                            miesiac_numer=2
+                            break;    
+                    }
+                    
+                    
+
+                    data_pierwszy = new Date(rok, miesiac_numer-1, 1);
+                    data_ostatni = new Date(rok, miesiac_numer-1, dni_w_miesiacu);
+                    pierwszy = data_pierwszy.getDay()
+                    ostatni = data_ostatni.getDay();
+                    document.writeln("Pierwszym dniem miesiaca jest: " + dzien_tygodnia[pierwszy] + "<br>");
+                    document.writeln("Ostatnim dniem miesiaca jest: " + dzien_tygodnia[ostatni]);
+
+
+                }                
+            </script>
+     </body>
+</html>
